@@ -7,20 +7,27 @@ from typing import Callable, Optional, Any, Union
 from .result import Result
 from .exceptions import ExecutionError  # Updated import
 
+
 class Executor:
     """
     The Executor class manages the random execution of actions within a specified time frame.
     """
 
-    def __init__(self, max_duration: Union[str, timedelta], seed: Optional[int] = None) -> None:
+    def __init__(
+        self, max_duration: Union[str, timedelta], seed: Optional[int] = None
+    ) -> None:
         if isinstance(max_duration, str):
             max_duration = self._parse_duration(max_duration)
         if not isinstance(max_duration, timedelta):
-            raise ValueError("max_duration must be a valid duration string or timedelta")
+            raise ValueError(
+                "max_duration must be a valid duration string or timedelta"
+            )
         self.max_duration = max_duration
         self.rand = random.Random(seed)
 
-    def execute(self, action: Callable[[], Any], timeout: Optional[float] = None) -> Any:
+    def execute(
+        self, action: Callable[[], Any], timeout: Optional[float] = None
+    ) -> Any:
         delay = self._get_random_delay()
         start_time = time.time()
         if timeout and delay > timeout:
@@ -57,11 +64,11 @@ class Executor:
     def _parse_duration(duration_str: str) -> timedelta:
         unit = duration_str[-1]
         value = int(duration_str[:-1])
-        if unit == 's':
+        if unit == "s":
             return timedelta(seconds=value)
-        elif unit == 'm':
+        elif unit == "m":
             return timedelta(minutes=value)
-        elif unit == 'h':
+        elif unit == "h":
             return timedelta(hours=value)
         else:
             raise ValueError(f"Invalid duration unit: {unit}")

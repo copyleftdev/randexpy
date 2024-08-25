@@ -3,6 +3,7 @@ from datetime import datetime
 from typing import Optional, Any
 from .exceptions import ExecutionError  # Updated import
 
+
 class Result:
     """
     The Result class represents the outcome of an execution.

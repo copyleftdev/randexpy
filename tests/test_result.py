@@ -3,6 +3,7 @@ from randexpy.result import Result
 from randexpy.exceptions import ExecutionError
 from datetime import datetime
 
+
 def test_result_initialization():
     result = Result()
     assert result.value is None
@@ -10,11 +11,13 @@ def test_result_initialization():
     assert result.start_time is None
     assert result.end_time is None
 
+
 def test_result_get_without_start():
     result = Result()
     # Do not set start_time to trigger the ExecutionError
     with pytest.raises(ExecutionError, match="Result not available yet"):
         result.get(timeout=1)
+
 
 def test_result_get_with_error():
     result = Result()
@@ -22,6 +25,7 @@ def test_result_get_with_error():
     result.error = RuntimeError("Test error")
     with pytest.raises(RuntimeError, match="Test error"):
         result.get()
+
 
 def test_result_get_successful():
     result = Result()
