@@ -1,7 +1,7 @@
 # 🌟 `randexcpy` - Random Execution Library for Python
 
 [![PyPI version](https://badge.fury.io/py/randexcpy.svg)](https://badge.fury.io/py/randexcpy)
-[![Build Status](https://github.com/copleftdev/randexcpy/actions/workflows/python-package.yml/badge.svg)](https://github.com/copleftdev/randexcpy/actions)
+[![Python application](https://github.com/copyleftdev/randexpy/actions/workflows/ci.yml/badge.svg)](https://github.com/copyleftdev/randexpy/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 `randexcpy` is a powerful Python library designed for executing actions at random times within a specified duration. It's perfect for scenarios like load testing, simulating real-world events, or implementing backoff strategies where randomness is key.
