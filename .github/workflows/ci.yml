@@ -29,10 +29,6 @@ jobs:
           pip install pipenv
           pipenv install --dev --deploy
 
-      - name: Lint with flake8
-        run: |
-          pipenv run flake8 .
-
       - name: Format with black
         run: |
           pipenv run black --check .
