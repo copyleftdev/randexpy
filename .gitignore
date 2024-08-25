@@ -1,0 +1,24 @@
+# Python
+*.pyc
+__pycache__/
+.pytest_cache/
+# Virtual environments
+.env
+.venv
+
+# Mutating
+.mutmut-cache
+
+# Random development artifacts
+file_contents2.txt
+getcode.py
+
+
+# Packaging
+build/
+dist/
+*.egg-info/
+
+# Editor-specific
+.vscode/
+.idea/

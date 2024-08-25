@@ -1,0 +1,10 @@
+# Testing framework
+pytest
+
+# Linting and code formatting
+flake8
+black
+isort
+
+# Mutation testing
+mutmut
