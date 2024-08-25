@@ -1,0 +1,46 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - v*
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  lint-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.12'  # or the version you are using
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pipenv
+          pipenv install --dev --deploy
+
+      - name: Lint with flake8
+        run: |
+          pipenv run flake8 .
+
+      - name: Format with black
+        run: |
+          pipenv run black --check .
+
+      - name: Sort imports with isort
+        run: |
+          pipenv run isort --check-only .
+
+      - name: Run tests with pytest
+        run: |
+          pipenv run pytest
